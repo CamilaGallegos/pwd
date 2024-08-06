@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteBase /guemes/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /guemes/index.php [L]

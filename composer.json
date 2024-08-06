@@ -1,0 +1,7 @@
+{
+    "name": "camilagallegos/tpfinal",
+    "description": "trabajo final de programacion web dinamica",
+    "require": {
+        "symfony/var-dumper": "^7.1"
+    }
+}

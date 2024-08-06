@@ -1,0 +1,164 @@
+body, h1, h2, p, a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #000;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1ead0;
+    color: #003850;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #ef5f24;
+    color: #fff;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.menu {
+    display: flex;
+    gap: 15px;
+}
+
+.menu a {
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.menu a:hover {
+    background-color: #003850;
+}
+
+.login a {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+main {
+    padding: 20px;
+}
+
+.events {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.event {
+    background-color: #e0f7fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.event h2 {
+    color: #ef5f24;
+}
+
+.gallery {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.photo {
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.photo img {
+    width: 100%;
+    display: block;
+}
+
+footer {
+    background-color: #003850;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+footer .social-media {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+footer .social-media a {
+    color: #fff;
+    padding: 5px 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+footer .social-media a:hover {
+    background-color: #ef5f24;
+    color: #003850;
+}
+
+/* Estilos para botones */
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #ef5f24;
+}
+
+.btn-primary:hover {
+    background-color: #d04d20;
+}
+
+.btn-secondary {
+    background-color: #003850;
+}
+
+.btn-secondary:hover {
+    background-color: #002d40;
+}
+
+.btn-danger {
+    background-color: #ff4d4d;
+}
+
+.btn-danger:hover {
+    background-color: #cc0000;
+}
+

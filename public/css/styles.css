@@ -1,0 +1,107 @@
+/* public/css/styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f1ead0;
+    color: #003850;
+}
+
+header {
+    background-color: #ef5f24;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+header .logo {
+    font-size: 1.5em;
+}
+
+header .menu a,
+header .login a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+header .login a {
+    display: flex;
+    align-items: center;
+}
+
+header .login a i {
+    margin-right: 5px;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #ef5f24;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.photo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.photo {
+    flex: 1 1 calc(33.333% - 10px);
+    background-color: #003850;
+    padding: 10px;
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ffffff;
+    background-color: #003850;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.btn-primary {
+    background-color: #ef5f24;
+}
+
+.btn-secondary {
+    background-color: #003850;
+}
+
+.btn-danger {
+    background-color: red;
+}
+
+.social-media a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.social-media-p {
+    margin: 0;
+    padding: 10px;
+}
