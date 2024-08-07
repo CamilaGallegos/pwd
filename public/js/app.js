@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         const result = await response.json();
-        if (response.ok) {
+        if (response.ok && result.success) {
             alert('Inicio de sesión exitoso');
             location.reload(); //recarga la pag para actualizar el estado de login
         }else{

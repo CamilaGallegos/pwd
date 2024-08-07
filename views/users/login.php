@@ -20,6 +20,7 @@
         <br>
         <button type="submit">Iniciar Sesión</button>
     </form>
-    <!--<p><a href="index.php">Volver</a></p>-->
+    <p><a href="register.php">Crear una cuenta</a></p>
+    <p><a href="../../index.html">Volver</a></p>
 </body>
 </html>

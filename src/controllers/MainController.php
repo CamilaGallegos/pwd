@@ -24,22 +24,32 @@ class MainController {
         require 'index.html';
     }
 
-    public function login() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $username = $_POST['username'] ?? '';
-            $password = $_POST['password'] ?? '';
+    public function login(){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $data = json_decode(file_get_contents('php://input'), true);
+            $username = trim($data['username']);
+            $password = trim($data['password']);
+            
+            if (empty($username) || empty($password)) {
+                echo json_encode(['message' => 'Todos los campos son obligatorios']);
+                return;
+            }
 
-            if ($username === 'camilagallegos' && $password === '21dia01mes') {
-                $_SESSION['isLoggedIn'] = true;
-                header('Location: index.php'); //redirige a la pagina principal
-                exit;
-            }else{//redirige de nuevo al formulario de inicio de sesion con un mensaje de error
-                $_SESSION['login_error'] = 'Usuario o contraseña incorrecta';
-                header('Location: views/users/login.php');
-                exit;
+            //busca el usuario en la db
+            $stmt = $this->pdo->prepare("SELECT * FROM users WHERE username = :username");
+            $stmt->bindParam(':username', $username);
+            $stmt->execute();
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+            if ($user && password_verify($password, $user['password'])){
+                $_SESSION['user_id'] = $user['id'];
+                echo json_encode(['success' => true]);
+            }else{
+                echo json_encode(['message' => 'Usuario o contrasela incorrecta']);
             }
         }else{
-            require 'views/users/login.php';
+            echo json_encode(['message' => 'Acción no válida']);
+            //require __DIR__ . '/../views/users/login.php';
         }
     }
 
@@ -72,6 +82,32 @@ class MainController {
             }
         } else {
             header('Location: index.php?action=login');
+        }
+    }
+
+    public function register(){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $username = trim($_POST['username']);
+            $password = trim($_POST['password']);
+            $password_hash = password_hash($password, PASSWORD_DEFAULT);
+    
+            if (empty($username) || empty($password)){
+                echo json_encode(['message' => 'Todos los campos son obligatorios']);
+                return;
+            }
+    
+            //crea el usuario
+            $stmt = $this->pdo->prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
+            $stmt->bindParam(':username', $username);
+            $stmt->bindParam(':password', $password_hash);
+    
+            if ($stmt->execute()){
+                echo json_encode(['message' => 'Usuario creado exitosamente']);
+            }else{
+                echo json_encode(['message' => 'Error al crear el usuario']);
+            }
+        }else{
+            require 'views/users/register.php';
         }
     }
 }

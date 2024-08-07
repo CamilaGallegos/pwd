@@ -1,6 +1,31 @@
 <?php
 
 class Database {
+    private $host = 'localhost';
+    private $db_name = 'guemes_db';
+    private $username = 'root';
+    private $password = '21dia01mes';
+    private $pdo;
+
+    public function getConnection() {
+        $this->pdo = null;
+
+        try {
+            $this->pdo = new PDO(
+                'mysql:host=' . $this->host . ';dbname=' . $this->db_name,
+                $this->username,
+                $this->password
+            );
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            echo 'Error de conexión: ' . $e->getMessage();
+        }
+
+        return $this->pdo;
+    }
+}
+
+/*class Database {
     private $pdo;
 
     public function __construct() {
@@ -15,4 +40,4 @@ class Database {
     public function getConnection() {
         return $this->pdo;
     }
-}
+}*/
